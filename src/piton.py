@@ -8,9 +8,13 @@ from pyparsing import Word, alphas, quotedString
 
 import es
 
+VERSION = 0.1
+
 keywords = object
 verbose = False
 
+def version():
+    print 'Piton v%s'%VERSION
 
 def translate(string, location, token):
     if token[0] in keywords.tokens:
@@ -29,6 +33,7 @@ def usage():
     print '-s\tSource file (*.pi)'
     print '-h\tThis help'
     print '-v\tVerbose'
+    print '-V\tVersion'
     print ''
 
 
@@ -38,7 +43,7 @@ def main(argv):
     lang = es
     keywords = lang.Keywords()
 
-    opts, args = getopt(argv, 's:hv', ['source=', 'help', 'verbose'])
+    opts, args = getopt(argv, 's:hvV', ['source=', 'help', 'verbose', 'version'])
     for opt, arg in opts:
         if opt in ['-s', '--source']:
             source = arg
@@ -48,6 +53,9 @@ def main(argv):
             exit()
         elif opt in ['-v', '--verbose']:
             verbose = True
+        elif opt in ['-V', '--version']:
+            version()
+            exit()
 
     try:
         if source:
