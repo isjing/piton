@@ -44,4 +44,5 @@ class Keywords:
         'producir': 'yield',
 
         'mostrar': 'print',
+        'rango': 'range',
     }
