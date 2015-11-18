@@ -2,11 +2,11 @@
 
 ## Introduccion
 
-Con Piton es posible escribir codigo Python en español, y cuenta con soporte para adaptar otras lenguas basadas en el alfabeto latino.
+Con Piton es posible escribir codigo Python en español, y cuenta con soporte para otros idiomas basados en el alfabeto latino.
 
-## Lenguas
+## Idiomas
 
-Las lenguas que actualmente estan soportadas son:
+Los idiomas que actualmente estan soportados son:
 
     - Español (Soporte parcial, actualmente en desarrollo)
 
@@ -28,6 +28,6 @@ $ ./piton.py -s ../test/primos.pi
 
 ## Como colaborar con el proyecto
 
-    - Colabora extendiendo el soporte a otras lenguas
+    - Colabora extendiendo el soporte para otros idiomas
     - Colabora con el desarrollo del codigo del proyecto
     - Colabora reportando los bugs
