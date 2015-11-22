@@ -3,10 +3,9 @@ from sys import argv
 
 import os
 import fnmatch
+import importlib
 from os.path import splitext
 from pyparsing import Word, alphas, quotedString
-
-import es
 
 VERSION = 0.1
 
@@ -27,9 +26,10 @@ def usage():
     print ''
     print 'Usage:'
     print ''
-    print 'piton [-hv] -s <source>'
+    print 'piton [-hv] [-l language] -s <source>'
     print ''
     print ''
+    print '-l\tLanguage plugin (default: es)'
     print '-s\tSource file (*.pi)'
     print '-h\tThis help'
     print '-v\tVerbose'
@@ -39,14 +39,14 @@ def usage():
 
 def main(argv):
     global verbose, keywords
+    language = None
 
-    lang = es
-    keywords = lang.Keywords()
-
-    opts, args = getopt(argv, 's:hvV', ['source=', 'help', 'verbose', 'version'])
+    opts, args = getopt(argv, 's:l:hvV', ['source=', 'language=', 'help', 'verbose', 'version'])
     for opt, arg in opts:
         if opt in ['-s', '--source']:
             source = arg
+        elif opt in ['-l', '--language']:
+            language = arg
         elif opt in ['-h', '--help']:
             # show usage
             usage()
@@ -66,6 +66,19 @@ def main(argv):
         if verbose:
             print('exit')
         exit()
+
+    try:
+        if language:
+            lang = importlib.import_module(language)
+        else:
+            lang = importlib.import_module('es')
+    except:
+        print('Error loading the language plugin')
+        if verbose:
+            print('exit')
+        exit()
+
+    keywords = lang.Keywords()
 
     # translation settings
     w = Word(alphas)
