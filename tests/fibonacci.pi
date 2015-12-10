@@ -1,0 +1,4 @@
+a,b = 0,1
+para i en rango(30):
+	a,b = b,a+b
+	mostrar b
