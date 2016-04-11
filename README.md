@@ -8,7 +8,7 @@ Con Piton es posible escribir codigo Python en español, y cuenta con soporte par
 
 Los idiomas que actualmente estan soportados son:
 
-    - Español (Soporte parcial, actualmente en desarrollo)
+    - Español
 
 ## Requerimientos
 

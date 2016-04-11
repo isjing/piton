@@ -1,0 +1,12 @@
+inicio = 1
+final = 100
+
+def esPrimo(numero):
+    para i en intervalo(2,numero):
+        si (numero % i) == 0:
+            retornar Falso
+    retornar Verdadero
+
+para numero en intervalo(inicio, final):
+    si esPrimo(numero):
+        mostrar numero
